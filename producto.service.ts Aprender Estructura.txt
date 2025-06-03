@@ -19,3 +19,13 @@ export class NombreDelServicio {
     return this.http.get<any>(`https://urlapi.com/endpoint/${id}`);
   }
 }
+
+
+
+
+🎯 Puntos clave que debes recordar
+✅ @Injectable({ providedIn: 'root' }): Hace que el servicio sea global.
+✅ HttpClient siempre se inyecta en el constructor (private http: HttpClient).
+✅ Los métodos del servicio usan this.http.get (o post, put, delete).
+✅ Siempre devuelven un Observable (Observable<any> o Observable<Product[]> por ejemplo).
+✅ Para obtener los datos, hay que suscribirse en el componente (subscribe).
