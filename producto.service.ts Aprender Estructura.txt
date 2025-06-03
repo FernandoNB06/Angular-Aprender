@@ -2,11 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
-export class MiServicio {
+@Injectable({
+  providedIn: 'root' // Lo hace accesible en toda la app
+})
+export class NombreDelServicio {
+
   constructor(private http: HttpClient) { }
 
+  // Método para obtener datos
   obtenerDatos(): Observable<any> {
     return this.http.get<any>('https://urlapi.com/endpoint');
+  }
+
+  // Método para obtener datos por ID (opcional)
+  obtenerDatoPorId(id: number): Observable<any> {
+    return this.http.get<any>(`https://urlapi.com/endpoint/${id}`);
   }
 }
